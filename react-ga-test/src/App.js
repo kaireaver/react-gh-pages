@@ -4,12 +4,22 @@ import ReactGA from 'react-ga4';
 import Contact from './ContactUs'
 const TRACKING_ID = "G-TG2HM26PD9"; // OUR_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
+
+const onClick = () => {
+    ReactGA.event({
+        action: "test_action",
+        category: "test_category",
+        label: "test_label",
+        value: "test_value"
+    })
+}
 function App() {
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+          <button onClick={onClick}>Test GA</button>
           <Contact></Contact>
       </header>
     </div>
